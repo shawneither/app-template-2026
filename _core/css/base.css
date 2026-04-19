@@ -118,15 +118,12 @@ label {
 }
 
 input {
-  /*-webkit-appearance: none;*/
-  /*-moz-appearance: none;*/
-  /*appearance: none;*/
+  appearance: none;
   border: none;
   border-radius: var(--corner-radius);
   background-color: #fff;
   font-size: inherit;
   line-height: inherit;
-  /* color: inherit; */
 }
 
 input[type='text']:focus,
