@@ -1,0 +1,380 @@
+
+@import url('base-typography.css');
+@import url('base-colors.css');
+
+*, *::before, *::after { box-sizing: border-box }
+
+body {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  /*min-height: 100dvh;*/
+  height: 100dvh;
+
+  overflow: auto hidden; /* Allow horizontal scrolling in a pinch */
+  touch-action: none; /* Allow dragging on touch screen without pull-down-to-refreshing */
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/*/////////////////////// Basic */
+
+a {
+  color: inherit;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 1em 0 0 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+img {
+  display: block;
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  overflow: hidden;
+  margin: 0;
+}
+
+iframe {
+  border: none;
+  background-color: #000;
+}
+
+details {
+  margin: 0;
+}
+
+details summary {
+  cursor: pointer;
+}
+
+
+/*/////////////////////// SVGs */
+
+svg {
+  display: block;
+  background: transparent;
+
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 1.5;
+
+  overflow: visible;
+  color: inherit;
+}
+
+svg .stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+svg .fill {
+  fill: currentColor;
+}
+
+svg .fill.bg {
+  fill: var(--bg);
+}
+svg .stroke.bg {
+  stroke: var(--bg);
+}
+
+
+/*/////////////////////// Forms */
+
+label {
+  cursor: inherit;
+}
+
+input {
+  /*-webkit-appearance: none;*/
+  /*-moz-appearance: none;*/
+  /*appearance: none;*/
+  border: none;
+  border-radius: var(--corner-radius);
+  background-color: #fff;
+  font-size: inherit;
+  line-height: inherit;
+  /* color: inherit; */
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+button:focus {
+  outline: none;
+  /* box-shadow: inset 0 0 0 2px var(--blue-light); */
+  /* box-shadow: inset 0 0 0 2px var(--pink-mid); */
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-shadow: 0 0 0 1px;
+  color: inherit;
+  background-color: transparent;
+  border-radius: var(--corner-radius);
+  cursor: pointer;
+}
+input[type="checkbox"]::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  /*background-color: currentColor;*/
+  background-color: transparent;
+  /*clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);*/
+  /*clip-path: polygon(18% 51%, 10% 60%, 40% 90%, 90% 20%, 81% 12%, 39% 72%);*/
+  /*clip-path: polygon(89% 18%, 45% 90%, 10% 74%, 17% 60%, 40% 71%, 76% 10%);*/
+  /*clip-path: polygon(90% 27%, 41% 88%, 10% 64%, 21% 51%, 40% 65%, 77% 16%);*/
+  /*clip-path: polygon(90% 25%, 42% 86%, 10% 62%, 21% 49%, 40% 63%, 77% 14%);*/
+  clip-path: polygon(90% 25%, 42% 86%, 10% 62%, 21% 48%, 39% 62%, 77% 14%);
+}
+
+input[type='checkbox']:checked {
+  background-color: currentColor;
+}
+input[type='checkbox']:checked::before {
+  /*background-color: #fff;*/
+  background-color: var(--wrapper-bg1);
+}
+
+
+
+
+input[type='range'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+input[type='range'].vert {
+  /* This is deprecated but could be used if someone is using Windows 8 */
+  /* deprecated: appearance: slider-vertical; Thanks: https://stackoverflow.com/a/15935838/ */
+  writing-mode: vertical-lr;
+  direction: rtl;
+  vertical-align: bottom;
+}
+
+/*/// Trying to target old Chrome on Windows 8 that can't natively do vertical sliders */
+/*@supports (writing-mode: vertical-lr) {*/
+@supports not (writing-mode: vertical-lr) {
+  input[type='range'] {
+    /*rotate: -90deg;*/
+    background-color: red;
+  }
+}
+
+
+
+input[type="range"]::-webkit-slider-thumb {
+  /* -webkit-appearance: none; */
+  /* appearance: none; */
+  aspect-ratio: 1;
+}
+
+input[type="range"]::-moz-range-thumb {
+  /* -moz-appearance: none; */
+  /* appearance: none; */
+  aspect-ratio: 1;
+  border: none;
+}
+
+select {
+  font: inherit;
+  color: inherit;
+  font-size: 1em;
+  border: none;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px;
+  border-radius: var(--corner-radius);
+  background-color: inherit;
+}
+
+
+/*/////////////////////// Buttons */
+
+button {
+  appearance: none;
+  border: none;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+  user-select: none;
+  cursor: pointer;
+}
+
+button[disabled] {
+  cursor: default;
+}
+
+.btn {
+
+  /* height: 1.75em; */
+  /* min-width: 1.75em; */
+  /* line-height: 1; */
+  line-height: inherit;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  overflow: hidden;
+
+  border-radius: var(--corner-radius);
+  background-color: transparent;
+}
+
+.btn.icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: var(--wrapper-hover);
+}
+
+.btn.icon .icon-play,
+.btn.icon .icon-pause {
+  display: block;
+}
+.btn.icon .icon-pause,
+.playing .btn.icon .icon-play {
+  display: none;
+}
+.playing .btn.icon .icon-pause {
+  display: block;
+}
+
+
+/*/////////////////////// Generics */
+
+.text-small {
+  font-size: 0.875em;
+}
+
+/* WHICH? */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+.tnum {
+  font-feature-settings: 'tnum';
+}
+
+.fractions {
+  /* WHICH? */
+  /*font-feature-settings: 'frac' 1;*/
+  font-variant-numeric: diagonal-fractions;
+}
+
+.aspectlock {
+  height: auto !important;
+  aspect-ratio: var(--aspect);
+  max-width: calc(100vh * var(--aspect));
+}
+
+.container {
+  container-type: size;
+}
+
+/* Center content without needing to use flexbox etc */
+.centered {
+  place-items: center;
+  place-content: center;
+}
+
+.full-width {
+  flex: 100% 0 0;
+}
+
+
+/*////////////////////////////////// Loader */
+
+/* Thanks https://codepen.io/supah/pen/BjYLdW */
+
+#loader {
+  width: 2em;
+  aspect-ratio: 1;
+  position: absolute;
+  color: #fff;
+  /*border-radius: 50%;*/
+  /*box-shadow: 0 0 0 0.15cqw #0002, inset 0 0 0 0.75cqw #0002;*/
+  display: none;
+}
+
+#loader svg {
+  animation: rotate 1.3s linear infinite;
+  display: block;
+  overflow: visible;
+}
+
+#loader svg circle {
+  animation: dash-rotate 2s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+  stroke-width: 8px;
+  stroke: currentColor;
+}
+
+
+/*/////////////////////// Animations */
+
+@keyframes rotate {
+  100% { transform: rotate(360deg) }
+}
+
+@keyframes dash-rotate {
+  0%   { stroke-dasharray: 1,  150; stroke-dashoffset: 0    }
+  50%  { stroke-dasharray: 90, 150; stroke-dashoffset: -35  }
+  100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124 }
+}
+
+@keyframes flash {
+  0% { opacity: 1 }
+  50% { opacity: 0 }
+}

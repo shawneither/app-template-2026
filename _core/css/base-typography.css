@@ -1,0 +1,30 @@
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-vf-wght-opsz.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  /*font-family: -system-ui, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, apple color emoji, segoe ui emoji, segoe ui symbol, sans-serif;*/
+  font-family: 'Inter', -system-ui, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, apple color emoji, segoe ui emoji, segoe ui symbol, sans-serif;
+
+  font-size: 16px;
+  line-height: 1.5;
+
+  /* Inter alternative glyphs - https://rsms.me/inter/ */
+  /* 100 - 900 */
+  /* cv05 = Lowercase L with tail */
+  /* cv08 = Uppercase I with serif */
+  /* cv10 = Uppercase G with spur */
+  /* cv11 = Single-story lowercase a */
+  /* ss07 = Square punctuation */
+
+  font-feature-settings: 'cv10', 'cv05';
+}
+
+i {
+  margin-right: 0.1em; /* only for the italic in Inter font */
+}
